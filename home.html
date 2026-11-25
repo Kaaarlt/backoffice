@@ -13,8 +13,13 @@
   <main class="dashboard" hidden>
     <header class="dashboard__header">
       <h1>Proyectos</h1>
-      <button type="button" id="add-project">Agregar proyecto</button>
+      <div class="dashboard__actions">
+        <button type="button" id="add-project">Agregar proyecto</button>
+        <button type="button" id="logout" class="button--secondary">Cerrar sesión</button>
+      </div>
     </header>
+
+    <p id="message" class="message" role="alert"></p>
 
     <section id="form-section" class="panel" aria-labelledby="form-title" hidden>
       <h2 id="form-title">Agregar proyecto</h2>
@@ -48,19 +53,25 @@
 
     <section aria-labelledby="projects-title">
       <h2 id="projects-title">Proyectos registrados</h2>
-      <div class="projects">
-        <article class="project">
-          <h3 class="project__title">Nombre del proyecto</h3>
-          <p class="project__description">Descripción del proyecto.</p>
-          <p class="project__technologies">HTML, CSS, JavaScript</p>
-          <div class="project__actions">
-            <button type="button" class="button--secondary">Actualizar</button>
-            <button type="button">Eliminar</button>
-          </div>
-        </article>
-      </div>
+      <p id="empty" hidden>No hay proyectos registrados.</p>
+      <div id="projects" class="projects"></div>
     </section>
   </main>
- <script type="module" src="Scripts/home.js"></script>
+
+  <template id="project-template">
+    <article class="project">
+      <img class="project__image" alt="" loading="lazy">
+      <h3 class="project__title"></h3>
+      <p class="project__description"></p>
+      <p class="project__technologies"></p>
+      <a class="project__repository" target="_blank" rel="noopener noreferrer">Repositorio</a>
+      <div class="project__actions">
+        <button type="button" class="project__edit button--secondary">Actualizar</button>
+        <button type="button" class="project__delete">Eliminar</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="Scripts/home.js"></script>
 </body>
 </html>
