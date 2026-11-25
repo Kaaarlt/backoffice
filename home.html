@@ -3,17 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=login.html">
   <title>Home | Backoffice</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Style/style.css">
 </head>
 <body>
-  <main>
-    <h1>Home</h1>
-    <p>Acceso restringido. <a href="login.html">Ir a Login</a></p>
+  <main class="dashboard" hidden>
+    <header class="dashboard__header">
+      <h1>Proyectos</h1>
+      <button type="button" id="add-project">Agregar proyecto</button>
+    </header>
+
+    <section id="form-section" class="panel" aria-labelledby="form-title" hidden>
+      <h2 id="form-title">Agregar proyecto</h2>
+      <form id="project-form">
+        <div>
+          <label for="title">Título</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+          <label for="description">Descripción</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div>
+          <label for="technologies">Tecnologías (separadas por coma)</label>
+          <input type="text" id="technologies" name="technologies">
+        </div>
+        <div>
+          <label for="repository">Repositorio (URL)</label>
+          <input type="url" id="repository" name="repository">
+        </div>
+        <div>
+          <label for="images">Imágenes (URLs separadas por coma)</label>
+          <input type="text" id="images" name="images">
+        </div>
+        <div class="form-actions">
+          <button type="submit">Guardar</button>
+          <button type="button" id="cancel-form" class="button--secondary">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="projects-title">
+      <h2 id="projects-title">Proyectos registrados</h2>
+      <div class="projects">
+        <article class="project">
+          <h3 class="project__title">Nombre del proyecto</h3>
+          <p class="project__description">Descripción del proyecto.</p>
+          <p class="project__technologies">HTML, CSS, JavaScript</p>
+          <div class="project__actions">
+            <button type="button" class="button--secondary">Actualizar</button>
+            <button type="button">Eliminar</button>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
+ <script type="module" src="Scripts/home.js"></script>
 </body>
-</html>|
+</html>
